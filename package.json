@@ -1,0 +1,68 @@
+{
+  "name": "@reiterate/react",
+  "version": "0.0.1",
+  "description": "Library to send feedback to Reiterate.so for React.",
+  "keywords": [
+    "iterate",
+    "reiterate",
+    "feedback",
+    "react"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "module": "./dist/index.esm.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist/**/*.{js,d.ts,mjs}",
+    "package.json"
+  ],
+  "repository": "github:reiterate-so/react",
+  "homepage": "https://reiterate.so/react",
+  "license": "MIT",
+  "scripts": {
+    "generate:graphql": "graphql-codegen",
+    "clean": "rm -r dist",
+    "watch": "yarn -r run watch",
+    "build": "bunchee ./src/index.ts",
+    "build-package": "",
+    "prepublishOnly": "yarn clean && pnpm build",
+    "publish-beta": "year publish --tag beta",
+    "format": "prettier --write ./**/*.{ts,tsx}",
+    "lint": "eslint . --ext .ts,.tsx --cache",
+    "lint:fix": "yarn lint --fix",
+    "coverage": "jest --coverage",
+    "test-typing": "tsc --noEmit -p test/type/tsconfig.json && tsc --noEmit -p test/tsconfig.json",
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "react": "^16.11.0 || ^17.0.0 || ^18.0.0"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "semi": false,
+    "useTabs": false,
+    "singleQuote": true
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "2.16.5",
+    "@graphql-codegen/typed-document-node": "2.3.13",
+    "@graphql-codegen/typescript": "2.8.8",
+    "@graphql-codegen/typescript-operations": "2.5.13",
+    "@types/react": "^18.0.27",
+    "bunchee": "^2.2.0",
+    "react": "^18.2.0",
+    "typescript": "4.9.5"
+  },
+  "dependencies": {
+    "graphql": "16.6.0",
+    "graphql-request": "5.1.0"
+  }
+}

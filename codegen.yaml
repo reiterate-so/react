@@ -1,0 +1,8 @@
+schema: http://localhost:3000/api/query
+documents: 'src/*.{tsx,ts}'
+generates:
+  ./src/graphql.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typed-document-node
