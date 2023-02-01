@@ -4,7 +4,7 @@
     "esModuleInterop": true,
     "jsx": "react",
     "lib": ["esnext", "dom"],
-    "module": "NodeNext",
+    "module": "ESNext",
     "moduleResolution": "nodenext",
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": false,
@@ -17,7 +17,6 @@
     "target": "ES2018",
     "baseUrl": ".",
     "noEmitOnError": true,
-    "incremental": true
   },
   "exclude": ["./**/dist"],
   "watchOptions": {

@@ -21,7 +21,7 @@ type UseFeedbackProps = {
 
 type UseFeedbackCreate = (
   feedback: string,
-  userId: string | undefined
+  userId?: string | undefined
 ) => Promise<any>
 
 type UseFeedbackState = {
@@ -40,10 +40,7 @@ export const useFeedback = ({
     loading: false,
   }))
 
-  const create: UseFeedbackCreate = async (
-    feedback: string,
-    userId?: string | undefined
-  ) => {
+  const create: UseFeedbackCreate = async (feedback, userId) => {
     setState((s) => ({
       ...s,
       loading: true,

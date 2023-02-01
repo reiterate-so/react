@@ -9,7 +9,7 @@
     "react"
   ],
   "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/src/index.d.ts",
   "exports": {
     "import": "./dist/index.mjs",
     "require": "./dist/index.js"
@@ -22,13 +22,10 @@
   "homepage": "https://reiterate.so/react",
   "license": "MIT",
   "scripts": {
-    "generate:graphql": "graphql-codegen",
     "clean": "rm -rf dist",
-    "watch": "yarn -r run watch",
-    "build": "bunchee ./src/index.ts",
-    "build-package": "",
+    "generate:graphql": "graphql-codegen",
+    "build": "rollup -c",
     "prepublishOnly": "yarn clean && yarn build",
-    "publish-beta": "year publish --tag beta",
     "format": "prettier --write ./**/*.{ts,tsx}",
     "lint": "eslint . --ext .ts,.tsx --cache",
     "lint:fix": "yarn lint --fix",
@@ -50,9 +47,11 @@
     "@graphql-codegen/typed-document-node": "2.3.13",
     "@graphql-codegen/typescript": "2.8.8",
     "@graphql-codegen/typescript-operations": "2.5.13",
-    "@types/react": "^18.0.27",
-    "bunchee": "^2.2.0",
-    "react": "^18.2.0",
+    "@rollup/plugin-typescript": "11.0.0",
+    "@types/react": "18.0.27",
+    "react": "18.2.0",
+    "rollup": "3.12.1",
+    "rollup-plugin-use-client": "1.4.0",
     "typescript": "4.9.5"
   },
   "dependencies": {
