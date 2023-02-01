@@ -16,6 +16,7 @@ const query = gql`
 
 type UseFeedbackProps = {
   apiKey: string
+  endpoint?: string
 }
 
 type UseFeedbackCreate = (
@@ -33,6 +34,7 @@ type UseFeedbackReturn = [UseFeedbackCreate, UseFeedbackState]
 
 export const useFeedback = ({
   apiKey,
+  endpoint = 'https://reiterate.so/api/query',
 }: UseFeedbackProps): UseFeedbackReturn => {
   const [state, setState] = useState<UseFeedbackState>(() => ({
     loading: false,
@@ -40,7 +42,7 @@ export const useFeedback = ({
 
   const create: UseFeedbackCreate = async (
     feedback: string,
-    userId: string | undefined
+    userId?: string | undefined
   ) => {
     setState((s) => ({
       ...s,
@@ -49,7 +51,7 @@ export const useFeedback = ({
     const result = await request<
       CreateFeedbackMutation,
       CreateFeedbackMutationVariables
-    >('https://reiterate.so/api/query', query, {
+    >(endpoint, query, {
       input: {
         text: feedback,
         app: {
