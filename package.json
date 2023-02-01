@@ -1,6 +1,6 @@
 {
   "name": "@reiterate/react",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Library to send feedback to Reiterate.so for React.",
   "keywords": [
     "iterate",
@@ -8,10 +8,10 @@
     "feedback",
     "react"
   ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    "types": "./dist/index.d.ts",
     "import": "./dist/index.mjs",
-    "module": "./dist/index.esm.js",
     "require": "./dist/index.js"
   },
   "files": [
