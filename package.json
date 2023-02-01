@@ -29,11 +29,11 @@
   "license": "MIT",
   "scripts": {
     "generate:graphql": "graphql-codegen",
-    "clean": "rm -r dist",
+    "clean": "rm -rf dist",
     "watch": "yarn -r run watch",
     "build": "bunchee ./src/index.ts",
     "build-package": "",
-    "prepublishOnly": "yarn clean && pnpm build",
+    "prepublishOnly": "yarn clean && yarn build",
     "publish-beta": "year publish --tag beta",
     "format": "prettier --write ./**/*.{ts,tsx}",
     "lint": "eslint . --ext .ts,.tsx --cache",
