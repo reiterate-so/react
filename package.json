@@ -1,6 +1,6 @@
 {
   "name": "@reiterate/react",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Library to send feedback to Reiterate.so for React.",
   "keywords": [
     "iterate",
